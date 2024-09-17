@@ -71,15 +71,4 @@ To set up the project locally, follow these steps:
 ## License
   This project is licensed under the MIT License.
 
-  
-### Relevant Code Snippets and Details
-Based on the content in your `views.py`, here are some sections covered in your project:
-
-- **User Registration & Authentication**: The platform uses Django's `authenticate`, `login`, and `logout` functions to manage user sessions securely.
-- **Dashboard**: The dashboard view handles customer and order data and is restricted to admins only.
-- **Order Management**: The `createOrder`, `updateOrder`, and `deleteOrder` views allow admins to handle order lifecycle management.
-- **Customer Management**: Admins can view, update, and delete customer information using the provided views.
-- **Support**: The `contactSupport` view allows users to send support requests via email.
-
-Let me know if you’d like further changes or additional details!
 
