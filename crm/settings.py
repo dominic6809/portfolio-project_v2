@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -88,16 +89,28 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'customerdb',
+#         'USER': 'admin',
+#         'PASSWORD': 'customer@6809',
+#         'HOST': 'localhost',  # Or IP address of your database server
+#         'PORT': '5432',        # Default PostgreSQL port
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'customerdb',
-        'USER': 'admin',
-        'PASSWORD': 'customer@6809',
-        'HOST': 'localhost',  # Or IP address of your database server
-        'PORT': '5432',        # Default PostgreSQL port
-    }
+    'default': dj_database_url.config(
+        default='postgres://tpllet1a_user:ltl82owp1nu5c0xs@10.0.0.12:5432/tpllet1a',
+        conn_max_age=600,  # Optional: keeps database connections alive
+        ssl_require=True   # Optional: enforce SSL (if your database requires it)
+    )
 }
+
+# If you want to explicitly define the ENGINE, you can do this as well:
+if 'DATABASE_URL' not in os.environ:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
