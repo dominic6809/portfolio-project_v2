@@ -1,0 +1,89 @@
+{% extends 'accounts/base_generic.html' %}
+
+<style>
+    .about-section {
+        padding: 50px 0;
+        background-color: #f8f9fa;
+    }
+
+    .about-section h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .about-section p {
+        font-size: 1.1rem;
+        color: #343a40;
+    }
+
+    .about-container {
+        margin-bottom: 40px;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .about-vision {
+        background-color: #e0f7fa; /* Light cyan */
+    }
+
+    .about-mission {
+        background-color: #fce4ec; /* Light pink */
+    }
+
+    .about-motto {
+        background-color: #fff9c4; /* Light yellow */
+    }
+
+    .about-container h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .about-container p {
+        font-style: italic;
+        font-size: 1.2rem;
+    }
+</style>
+
+{% block content %}
+<div class="about-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <!-- About Header -->
+                <div class="about-header">
+                    <h1>About Us</h1>
+                    <p style="background-color: cyan"><i>Your trusted partner in customer and order management solutions.</i></p>
+                </div>
+
+                <!-- About Content -->
+                <div class="about-content">
+                    <p>We are a customer management solution provider committed to delivering streamlined, efficient, and scalable systems. Our platform enhances the customer experience, improves operational efficiency, and offers actionable insights to empower businesses of all sizes.</p>
+                    <p>With years of experience in the industry, we have developed tailored solutions that suit businesses of all sizes. Our platform is designed to enhance customer relationships, optimize order management, and provide superior support services.</p>
+                    <p>Founded in 2024, we have a strong focus on innovation, customer satisfaction, and providing top-notch support to our clients.</p>
+                </div>
+
+                <!-- Vision Section -->
+                <div class="about-container about-vision">
+                    <h2>Our Vision</h2>
+                    <p><i>To be the leading provider of innovative customer and order management solutions that transform businesses worldwide.</i></p>
+                </div>
+
+                <!-- Mission Section -->
+                <div class="about-container about-mission">
+                    <h2>Our Mission</h2>
+                    <p><i>To empower businesses through cutting-edge technology, enabling them to provide exceptional customer service, optimize operations, and achieve sustainable growth.</i></p>
+                </div>
+
+                <!-- Motto Section -->
+                <div class="about-container about-motto">
+                    <h2>Our Motto</h2>
+                    <p><i>"Excellence in Every Interaction."</i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

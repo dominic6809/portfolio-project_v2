@@ -1,0 +1,21 @@
+{% extends "accounts/base_generic.html" %}
+{% load static %}
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/product_pages.css' %}">
+
+  <div class="product-header">
+    <h1>Support Portal</h1>
+    <p>Get help managing orders, customer data, and resolving system issues quickly.</p>
+  </div>
+
+  <section class="product-section">
+    <div class="container">
+      <h2>24/7 Support</h2>
+      <p>
+        Our support portal is available to assist you with any issues you may encounter. From managing customer data to
+        resolving technical problems, we've got you covered.
+      </p>
+      <a href="{% url "contact" %}" class="btn btn-primary">Contact Support</a>
+    </div>
+  </section>
+{% endblock %}

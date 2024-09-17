@@ -1,0 +1,92 @@
+{% extends 'accounts/base_generic.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<br />
+<h3>Create Orders for {{ customer.name }}</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ formset.management_form }}
+
+                {% for form in formset %}
+                    <div class="row">
+                        <!-- Product Field -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form.product.label_tag }}
+                                {{ form.product|add_class:"form-control" }}
+                            </div>
+                        </div>
+
+                        <!-- Status Field -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                {{ form.status.label_tag }}
+                                {{ form.status|add_class:"form-control" }}
+                            </div>
+                        </div>
+
+                        <!-- Delete Checkbox -->
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                {{ form.DELETE.label_tag }}
+                                {{ form.DELETE|add_class:"form-check-input" }}
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                {% endfor %}
+				<div class="col-md-6">
+					<div class="form-group">
+						{% for field in form %}
+							{{field.label}}
+							{{field|add_class:'form-control'}}
+						{% endfor %}
+					</div>
+				</div>
+                <br>
+                <button type="submit" class="btn btn-success">Save Orders</button>
+            </form>
+        </div>
+    </div>
+	
+</div>
+
+<a class="btn btn-warning mt-3" href="{% url 'customer' request.user.customer.id %}">Back to Customer</a>
+{% endblock %}
+
+
+{% comment %} <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    {% for form in formset %}
+        <div class="card card-body mb-3">
+            <div class="row">
+                <!-- Product field (col-md-6) -->
+                <div class="col-md-6 form-group">
+                    <label for="{{ form.product.id_for_label }}">{{ form.product.label }}</label>
+                    {{ form.product|add_class:"form-control" }}
+                </div>
+
+                <!-- Status field (col-md-6) -->
+                <div class="col-md-6 form-group">
+                    <label for="{{ form.status.id_for_label }}">{{ form.status.label }}</label>
+                    {{ form.status|add_class:"form-control" }}
+                </div>
+            </div>
+            <div class="row mt-3">
+                <!-- Delete checkbox (col-md-6) -->
+                <div class="col-md-6 form-check">
+                    <label for="{{ form.DELETE.id_for_label }}" class="form-check-label">Delete Order</label>
+                    {{ form.DELETE|add_class:"form-check-input" }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-success">Save Orders</button>
+</form> {% endcomment %}

@@ -1,0 +1,54 @@
+{% extends 'accounts/base_generic.html' %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+
+<style>
+  .profile-pic {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+</style>
+
+<br>
+<div class="row">
+  <div class="col-md-3">
+    <div class="card card-body">
+      <a class="btn btn-warning" href="{% url 'home' %}"> &#8592; Back to Profile</a>
+      <hr>
+      <h3 style="text-align: center">Account Settings</h3>
+      <hr>
+      <img class="profile-pic" src="{{ request.user.customer.profile_pic.url }}">
+    </div>
+  </div>
+  
+  <div class="col-md-9">
+    <div class="card card-body">
+      <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+  
+        <!-- Example for a field with custom styling -->
+        <div class="form-group">
+          <label for="id_name">Username</label>
+          {{ form.name|add_class:"form-control" }}
+        </div>
+  
+        <div class="form-group">
+          <label for="id_email">Email</label>
+          {{ form.email|add_class:"form-control" }}
+        </div>
+  
+        <div class="form-group">
+          <label for="id_profile_pic">Profile Picture</label>
+          {{ form.profile_pic|add_class:"form-control" }}
+        </div>
+          <br>
+        <input class="btn btn-primary" type="submit" value="Update Information">
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

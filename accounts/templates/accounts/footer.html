@@ -1,0 +1,139 @@
+<style>
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+  footer {
+    width: 100%;
+    margin-top: auto;
+    background-color: #1c2331;
+    padding: 5px 0;
+    color: #fff;
+  }
+
+  footer .container {
+    max-width: 100%;
+  }
+
+  footer .p-4 {
+    padding: 1rem 2rem;
+  }
+
+  footer .p-3 {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  footer hr {
+    margin: 1rem auto;
+    width: 60px;
+    height: 2px;
+    background-color: #7c4dff;
+  }
+
+  .footer-social-icons a {
+    font-size: 20px;
+    margin-right: 15px;
+    color: white;
+  }
+
+  footer h6 {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+
+  .footer-links {
+    text-align: left;
+    line-height: 2;
+  }
+
+  .footer-contact p {
+    line-height: 1.7;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    footer .row {
+      text-align: center;
+    }
+
+    .footer-social-icons {
+      justify-content: center;
+    }
+  }
+</style>
+
+<!-- Footer -->
+<footer class="text-center text-lg-start text-white my-5">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-between p-4" style="background-color: #6351ce;">
+    <div>
+      <span>Get connected with us on social networks:</span>
+    </div>
+    <div class="footer-social-icons">
+      <a href="https://facebook.com/" class="me-4"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com/" class="me-4"><i class="fab fa-twitter"></i></a>
+      <a href="https://plus.google.com/" class="me-4"><i class="fab fa-google"></i></a>
+      <a href="https://instagram.com/" class="me-4"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/in/" class="me-4"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/" class="me-4"><i class="fab fa-github"></i></a>
+    </div>
+  </section>
+
+  <!-- Section: Links -->
+  <section>
+    <div class="container text-center text-md-start mt-5">
+      <div class="row mt-3">
+        <!-- Company Info -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6>Customer Management</h6>
+          <hr />
+          <p><i>Providing excellent customer and order management services to streamline your business operations.</i></p>
+        </div>
+
+        <!-- Products Section in Footer -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 footer-links">
+          <h6>Products</h6>
+          <hr />
+          <p><a href="{% url 'order_management' %}" class="text-white">Order Management</a></p>
+          <p><a href="{% url 'customer_insights' %}" class="text-white">Customer Insights</a></p>
+          <p><a href="{% url 'support_portal' %}" class="text-white">Support Portal</a></p>
+        </div>
+
+
+        <!-- Useful Links -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 footer-links">
+          <h6>Useful links</h6>
+          <hr />
+          <p><a href="{% url "account" %}" class="text-white">Your Account</a></p>
+          <p><a href="{% url 'about' %}" class="text-white">About</a></p>
+          <p><a href="#!" class="text-white">Privacy Policy</a></p>
+          <p><a href="{% url "help_center" %}" class="text-white">Help Center</a></p>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 footer-contact">
+          <h6>Contact</h6>
+          <hr />
+          <p><i class="fas fa-home mr-3"></i> Nairobi, Kenya</p>
+          <p><i class="fas fa-envelope mr-3"></i> support@customermanagement.com</p>
+          <p><i class="fas fa-phone mr-3"></i> +254 700 000 000</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2024 Customer Management | All rights reserved.
+  </div>
+</footer>

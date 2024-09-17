@@ -1,0 +1,44 @@
+{% load static %}
+
+<style>
+  .hello-msg {
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+}
+.account {
+  margin-right: 20px;
+  font-size: 15px;
+}
+</style>
+
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url "home" %}">Customer Management</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      {% if request.user.is_staff %}
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url "products" %}">Products</a>
+            </li>
+          </ul>
+        </div>
+        <span class="account"><a class="nav-link text-white navbar-settings" href="{% url "account" %}">Settings</a></span>
+      {% endif %}
+    </div>
+    {% if not request.user.is_staff %}
+      <span class="account"><a class="nav-link text-white navbar-settings" href="{% url "account" %}">Settings</a></span>
+    {% endif %}
+
+  <!--Logout feature-->
+  <span class="hello-msg">Welcome, {{ request.user.customer }}</span>
+  <span><a class="hello-msg" href="{% url "logout" %}">Logout</a></span>
+  </nav>
