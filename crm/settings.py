@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
+# import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-p1-w5z0s!=m(f-!t5_zljvn+5-oh8&-ga+%x81jrp@83llg-p+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '4ra-loyal-lagrange.circumeo-apps.net']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -89,28 +89,17 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'customerdb',
-#         'USER': 'admin',
-#         'PASSWORD': 'customer@6809',
-#         'HOST': 'localhost',  # Or IP address of your database server
-#         'PORT': '5432',        # Default PostgreSQL port
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://tpllet1a_user:ltl82owp1nu5c0xs@10.0.0.12:5432/tpllet1a',
-        conn_max_age=600,  # Optional: keeps database connections alive
-        ssl_require=True   # Optional: enforce SSL (if your database requires it)
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'customerdb',
+        'USER': 'admin',
+        'PASSWORD': 'customer@6809',
+        'HOST': 'localhost',  # Or IP address of your database server
+        'PORT': '5432',        # Default PostgreSQL port
+    }
 }
 
-# If you want to explicitly define the ENGINE, you can do this as well:
-if 'DATABASE_URL' not in os.environ:
-    DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
