@@ -105,7 +105,7 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://admin:customer@6809@localhost:5432/customerdb'
+        default=os.environ.get('DATABASE_URL', 'postgres://admin:customer@6809@localhost:5432/customerdb')
     )
 }
 
