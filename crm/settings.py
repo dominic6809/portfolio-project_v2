@@ -95,10 +95,10 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'customerdb',
-        'USER': 'admin',
-        'PASSWORD': 'customer@6809',
-        'HOST': 'localhost',  # Or IP address of your database server
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'jLRzibzSzJjGIcLwaiLydmfoREqjODbp',
+        'HOST': 'postgres.railway.internal',  # Or IP address of your database server
         'PORT': '5432',        # Default PostgreSQL port
     }
 }
