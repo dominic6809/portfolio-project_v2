@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
+  }
 
   footer {
     width: 100%;
@@ -60,34 +60,55 @@
     line-height: 1.7;
   }
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    footer .row {
-      text-align: center;
-    }
-
-    .footer-social-icons {
-      justify-content: center;
-    }
+  /* Additional Responsive Styles */
+@media (max-width: 768px) {
+  .footer-social-icons {
+    justify-content: center;
+    padding: 0;
   }
+  
+  .footer-social-icons a {
+    margin: 0 10px;
+  }
+
+  .footer-links, .footer-contact {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer-links p, .footer-contact p {
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-links h6, .footer-contact h6 {
+    font-size: 1.1rem;
+  }
+
+  .footer-social-icons {
+    font-size: 18px;
+  }
+}
+
 </style>
 
 <!-- Footer -->
 <footer class="text-center text-lg-start text-white my-5">
   <!-- Section: Social media -->
-  <section class="d-flex justify-content-between p-4" style="background-color: #6351ce;">
-    <div>
-      <span>Get connected with us on social networks:</span>
-    </div>
-    <div class="footer-social-icons">
-      <a href="https://facebook.com/" class="me-4"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://twitter.com/" class="me-4"><i class="fab fa-twitter"></i></a>
-      <a href="https://plus.google.com/" class="me-4"><i class="fab fa-google"></i></a>
-      <a href="https://instagram.com/" class="me-4"><i class="fab fa-instagram"></i></a>
-      <a href="https://linkedin.com/in/" class="me-4"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/" class="me-4"><i class="fab fa-github"></i></a>
-    </div>
-  </section>
+<section class="d-flex justify-content-between p-4" style="background-color: #6351ce;">
+  <div>
+    <span>Get connected with us on social networks:</span>
+  </div>
+  <div class="footer-social-icons">
+    <a href="https://facebook.com/" class="me-4" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://twitter.com/" class="me-4" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://plus.google.com/" class="me-4" target="_blank"><i class="fab fa-google"></i></a>
+    <a href="https://instagram.com/" class="me-4" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com/in/" class="me-4" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/" class="me-4" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
+</section>
 
   <!-- Section: Links -->
   <section>
