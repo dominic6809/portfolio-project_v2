@@ -5,40 +5,56 @@
     font-size: 18px;
     color: #fff;
     margin-right: 20px;
-}
-.account {
-  margin-right: 20px;
-  font-size: 15px;
-}
+  }
+  .account {
+    margin-right: 20px;
+    font-size: 15px;
+  }
 </style>
 
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url "home" %}">Customer Management</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">Customer Management</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      {% if request.user.is_staff %}
-        <div class="collapse navbar-collapse" id="navbarColor02">
-          <ul class="navbar-nav me-auto">
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav me-auto">
+        {% if request.user.is_authenticated %}
+          {% if request.user.is_staff %}
+            <!-- Staff-specific links -->
             <li class="nav-item">
-              <a class="nav-link" href="/">Dashboard
-              </a>
+              <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url "products" %}">Products</a>
+              <a class="nav-link" href="{% url 'products' %}">Products</a>
             </li>
-          </ul>
-        </div>
-        <span class="account"><a class="nav-link text-white navbar-settings" href="{% url "account" %}">Settings</a></span>
-      {% endif %}
+          {% endif %}
+
+          <!-- Common links for authenticated users -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account' %}">Settings</a>
+          </li>
+
+          <!-- Logout link -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+        {% else %}
+          <!-- Links for non-authenticated users -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+          </li>
+        {% endif %}
+      </ul>
     </div>
-    {% if not request.user.is_staff %}
-      <span class="account"><a class="nav-link text-white navbar-settings" href="{% url "account" %}">Settings</a></span>
-    {% endif %}
 
-  <!--Logout feature-->
-  <span class="hello-msg">Welcome, {{ request.user.customer }}</span>
-  <span><a class="hello-msg" href="{% url "logout" %}">Logout</a></span>
-  </nav>
+    {% if request.user.is_authenticated %}
+      <span class="hello-msg">Welcome, {{ request.user.username }}</span>
+    {% endif %}
+  </div>
+</nav>

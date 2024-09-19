@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import render, redirect
 from .models import *
 from .filters import OrderFilter
@@ -11,6 +12,10 @@ from django.core.mail import send_mail
 from django.conf import settings
 
 # Create your views here.
+def landingPage(request):
+    
+    return render(request, 'landing.html')
+
 #-----------REGISTRATION VIEWS-------------------
 @unauthenticated_user
 def registerPage(request):
@@ -38,7 +43,7 @@ def loginPage(request):
 
         if user is not None:
             login(request, user)
-            return redirect('/')
+            return redirect('home')
         else:
             messages.error(request, 'Invalid Username OR Password*')
 
@@ -47,7 +52,7 @@ def loginPage(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('login')
+    return redirect('landing')
 
 #-----------NEW USER CREATION VIEWS----------
 @login_required(login_url='login')
@@ -107,8 +112,9 @@ def dashboard(request):
     context = {
         'customers':customers, 'orders':orders,
         'total_customers':total_customers,'total_orders':total_orders, 
-        'delivered':delivered, 'pending':pending, 'out_for_delivery':out_for_delivery
-	}
+        'delivered':delivered, 'pending':pending, 'out_for_delivery':out_for_delivery,
+        'current_year': datetime.now().year
+    }
     return render(request, 'accounts/dashboard.html', context)
 
 #---------------PRODUCTS VIEW------------------
@@ -147,7 +153,7 @@ def createCustomer(request):
         form = CustomerForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('dashboard/')
 
     context = {'action': action, 'form': form}
     return render(request, 'accounts/customer_form.html', context)
@@ -233,7 +239,7 @@ def deleteCustomer(request, pk):
     customer = Customer.objects.get(id=pk)
     if request.method == 'POST':
         customer.delete()
-        return redirect('/')
+        return redirect('home')
 
     context = {'customer': customer}
     return render(request, 'accounts/delete_customer.html', context)

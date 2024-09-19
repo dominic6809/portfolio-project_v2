@@ -1,0 +1,19 @@
+.land{
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+
+.bottom-land {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: hsla(240, 85%, 54%, 0.9);
+    margin-top: 20px;
+    min-height: 100px; /* Adjust height as needed */
+    margin-left: 350px;
+    margin-right: 350px;
+    padding: 20px;
+}

@@ -92,22 +92,22 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'customerdb',
-#         'USER': 'admin',
-#         'PASSWORD': 'customer@6809',
-#         'HOST': 'localhost',  # Or IP address of your database server
-#         'PORT': '5432',        # Default PostgreSQL port
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL', 'postgres://admin:customer@6809@localhost:5432/customerdb')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'customerdb',
+        'USER': 'admin',
+        'PASSWORD': 'customer@6809',
+        'HOST': 'localhost',  # Or IP address of your database server
+        'PORT': '5432',        # Default PostgreSQL port
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.environ.get('DATABASE_URL', 'postgres://admin:customer@6809@localhost:5432/customerdb')
+#     )
+# }
 
 
 # Password validation

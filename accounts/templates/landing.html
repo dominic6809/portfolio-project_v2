@@ -1,0 +1,92 @@
+{% extends 'accounts/base_generic.html' %}
+{% comment %} <style>
+  .container-fluid{
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+</style> {% endcomment %}
+{% block content %}
+<!-- Hero Section -->
+<div class="land">
+<section class="hero text-center bg-primary text-white py-5">
+    <div class="container pt-0">
+      <h1 class="display-4">Customer Management System</h1>
+      <p class="lead"><i>"Revolutionize Your Customer Experience with Effortless Management</i></p>
+      <a href="{% url 'register' %}" class="btn btn-light btn-lg mx-2">Get Started</a>
+      <a href="{% url 'login' %}" class="btn btn-light btn-lg mx-2">Login</a>
+    </div>
+  </section>
+</div>
+
+<!-- Features Section -->
+<section class="features py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Key Features</h2>
+    <div class="row">
+      <!-- User Authentication Feature -->
+      <div class="col-md-4 text-center">
+        <i class="fas fa-user-lock fa-3x mb-3 text-primary"></i>
+        <h3>User Authentication & Role Management</h3>
+        <p>Secure login for customers and administrators with role-based permissions.</p>
+      </div>
+      <!-- Customer & Order Management -->
+      <div class="col-md-4 text-center">
+        <i class="fas fa-boxes fa-3x mb-3 text-primary"></i>
+        <h3>Customer & Order Management</h3>
+        <p>Manage customer details and track order statuses seamlessly.</p>
+      </div>
+      <!-- Real-time Dashboard -->
+      <div class="col-md-4 text-center">
+        <i class="fas fa-chart-line fa-3x mb-3 text-primary"></i>
+        <h3>Real-time Dashboard</h3>
+        <p>View key metrics like total orders, pending tasks, and customer insights.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">What Our Users Say</h2>
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <p class="font-italic">"This system has streamlined our customer management process!"</p>
+        <p><strong>- Business Owner</strong></p>
+      </div>
+      <div class="col-md-4 text-center">
+        <p class="font-italic">"Tracking orders has never been easier!"</p>
+        <p><strong>- Operations Manager</strong></p>
+      </div>
+      <div class="col-md-4 text-center">
+        <p class="font-italic">"The dashboard gives us the insights we need to make informed decisions."</p>
+        <p><strong>- Sales Director</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<div class="bottom-land">
+  <section class="call-to-action text-center py-4">
+    <div class="container custom-container">
+      <h2 style="color: black">Ready to get started?</h2>
+      <a href="{% url 'register' %}" class="btn btn-light btn-lg mx-2">Sign Up Now</a>
+    </div>
+  </section>
+</div>
+
+<!-- Footer -->
+{% comment %} <footer class="bg-dark text-white py-4">
+  <div class="container text-center">
+    <p>&copy; {{ current_year }} Customer Management System. All rights reserved.</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="{% url 'about' %}" class="text-white">About</a></li>
+      <li class="list-inline-item"><a href="{% url 'help_center' %}" class="text-white">Help Center</a></li>
+      <li class="list-inline-item"><a href="{% url 'contact' %}" class="text-white">Contact Support</a></li>
+    </ul>
+  </div>
+</footer>
+{% endcomment %}
+
+{% endblock %} 
