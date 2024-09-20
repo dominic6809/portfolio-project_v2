@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-p1-w5z0s!=m(f-!t5_zljvn+5-oh8&-ga+%x81jrp@83llg-p+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', '4ie-resolute-torricelli.circumeo-apps.net']
 
 
 # Application definition
@@ -92,22 +92,27 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'jLRzibzSzJjGIcLwaiLydmfoREqjODbp',
+#         'HOST': 'postgres.railway.internal',  # Or IP address of your database server
+#         'PORT': '5432',        # Default PostgreSQL port
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'jLRzibzSzJjGIcLwaiLydmfoREqjODbp',
-        'HOST': 'postgres.railway.internal',  # Or IP address of your database server
-        'PORT': '5432',        # Default PostgreSQL port
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ["POSTGRES_DB"],
+        "USER": os.environ["POSTGRES_USER"],
+        "PASSWORD": os.environ["POSTGRES_PASSWORD"],
+        "HOST": os.environ["POSTGRES_HOST"],
+        "PORT": os.environ["POSTGRES_PORT"],
     }
 }
-
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default=os.environ.get('DATABASE_URL', 'postgres://admin:customer@6809@localhost:5432/customerdb')
-#     )
-# }
 
 
 # Password validation
