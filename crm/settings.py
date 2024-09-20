@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-p1-w5z0s!=m(f-!t5_zljvn+5-oh8&-ga+%x81jrp@83llg-p+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', '4ie-resolute-torricelli.circumeo-apps.net']
+ALLOWED_HOSTS = ['4ie-resolute-torricelli.circumeo-apps.net', 'localhost', '127.0.0.1']
+
+CSRF_TRUSTED_ORIGINS = ['https://4ie-resolute-torricelli.circumeo-apps.net']
 
 
 # Application definition
