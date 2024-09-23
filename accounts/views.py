@@ -16,7 +16,7 @@ def landingPage(request):
     
     return render(request, 'landing.html')
 
-#-----------REGISTRATION VIEWS-------------------
+#-----------REGISTRATION VIEW-------------------
 @unauthenticated_user
 def registerPage(request):
     form = CreateUserForm()
@@ -33,6 +33,7 @@ def registerPage(request):
     context = {'form':form}
     return render(request, 'accounts/registration/register.html', context)
 
+#-----------Login VIEW-------------------
 @unauthenticated_user
 def loginPage(request):
     if request.method == 'POST':
@@ -54,7 +55,7 @@ def logoutUser(request):
     logout(request)
     return redirect('landing')
 
-#-----------NEW USER CREATION VIEWS----------
+#-----------NEW USER CREATION VIEW----------
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def userPage(request):

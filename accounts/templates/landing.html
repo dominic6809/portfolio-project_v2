@@ -1,10 +1,5 @@
 {% extends 'accounts/base_generic.html' %}
-{% comment %} <style>
-  .container-fluid{
-    margin-left: -12px;
-    margin-right: -12px;
-  }
-</style> {% endcomment %}
+
 {% block content %}
 <!-- Hero Section -->
 <div class="land">
@@ -65,28 +60,5 @@
     </div>
   </div>
 </section>
-
-<!-- Call to Action -->
-<div class="bottom-land">
-  <section class="call-to-action text-center py-4">
-    <div class="container custom-container">
-      <h2 style="color: black">Ready to get started?</h2>
-      <a href="{% url 'register' %}" class="btn btn-light btn-lg mx-2">Sign Up Now</a>
-    </div>
-  </section>
-</div>
-
-<!-- Footer -->
-{% comment %} <footer class="bg-dark text-white py-4">
-  <div class="container text-center">
-    <p>&copy; {{ current_year }} Customer Management System. All rights reserved.</p>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="{% url 'about' %}" class="text-white">About</a></li>
-      <li class="list-inline-item"><a href="{% url 'help_center' %}" class="text-white">Help Center</a></li>
-      <li class="list-inline-item"><a href="{% url 'contact' %}" class="text-white">Contact Support</a></li>
-    </ul>
-  </div>
-</footer>
-{% endcomment %}
 
 {% endblock %} 

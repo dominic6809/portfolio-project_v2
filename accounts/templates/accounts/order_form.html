@@ -59,34 +59,3 @@
 
 <a class="btn btn-warning mt-3" href="{% url 'customer' request.user.customer.id %}">Back to Customer</a>
 {% endblock %}
-
-
-{% comment %} <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ formset.management_form }}
-    {% for form in formset %}
-        <div class="card card-body mb-3">
-            <div class="row">
-                <!-- Product field (col-md-6) -->
-                <div class="col-md-6 form-group">
-                    <label for="{{ form.product.id_for_label }}">{{ form.product.label }}</label>
-                    {{ form.product|add_class:"form-control" }}
-                </div>
-
-                <!-- Status field (col-md-6) -->
-                <div class="col-md-6 form-group">
-                    <label for="{{ form.status.id_for_label }}">{{ form.status.label }}</label>
-                    {{ form.status|add_class:"form-control" }}
-                </div>
-            </div>
-            <div class="row mt-3">
-                <!-- Delete checkbox (col-md-6) -->
-                <div class="col-md-6 form-check">
-                    <label for="{{ form.DELETE.id_for_label }}" class="form-check-label">Delete Order</label>
-                    {{ form.DELETE|add_class:"form-check-input" }}
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-    <button type="submit" class="btn btn-success">Save Orders</button>
-</form> {% endcomment %}

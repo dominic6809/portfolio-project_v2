@@ -13,9 +13,7 @@ class Customer(models.Model):
 
 	def __str__(self):
 		return self.name
-	# def __str__(self):
-    #     # Return a fallback string if name is None
-	# 	return self.name if self.name else "Unnamed Customer"
+	
 
 	@property
 	def orders(self):
