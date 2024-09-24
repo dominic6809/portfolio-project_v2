@@ -6,7 +6,7 @@ from .models import Customer
 
 def customer_profile(sender, instance, created, **kwargs):
     if created:
-        group, created = Group.objects.get_or_create(name='customer, Admin')
+        group, created = Group.objects.get_or_create(name='customer')
         instance.groups.add(group)
         Customer.objects.create(
             user=instance,
